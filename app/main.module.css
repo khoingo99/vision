@@ -1,0 +1,157 @@
+/* Theme */
+.shell{
+  --accent:#11a8bf; --accent-600:#0e91a6;
+  --line:#e6edf2; --ink:#2f3f4b; --muted:#8ea1af;
+  background:#f3f6fa; min-height:100svh;
+}
+.link{color:#8599a8;text-decoration:none;} .link:hover{text-decoration:underline;}
+.container{width:1600px;margin:0 auto;padding:6px 0 28px;}
+.titleRow{display:flex;align-items:center;justify-content:space-between;margin:20px 0 20px;}
+.pageTitle{margin:0;font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;}
+.writeBtn{height:36px;padding:0 14px;border-radius:8px;border:1px solid var(--accent);color:var(--accent);background:#fff;font-weight:700;cursor:pointer;}
+
+/* 🔷 Stats strip */
+.statsCard{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  display:grid;grid-template-columns:repeat(8,1fr);gap:0;padding:15px;margin-bottom:20px;
+}
+.statItem{display:flex;align-items:center;gap:12px;padding:6px 12px;}
+.statItem:not(:last-child){border-right:1px solid var(--line);}
+.statIcon{width:36px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;border:1px solid var(--line);}
+.statMeta{display:flex;gap:4px;flex-direction:column;}
+.statLabel{font-size:12px;color:var(--muted);}
+.statValueRow{display:flex;align-items:baseline;gap:4px;}
+.statValue{font-size:20px;font-weight:800;color:#000;}
+.statUnit{font-size:14px;font-weight:700;color:#000;}
+/* icon màu nhạt */
+.icoWait{background:#fff7ec;border-color:#ffe2bf;}
+.icoAssign{background:#fff5e6;border-color:#ffe0b3;}
+.icoProgress{background:#eafcf1;border-color:#c7f2d9;}
+.icoCheckReq{background:#f4eaff;border-color:#e1d2ff;}
+.icoHold{background:#fff2e8;border-color:#ffd7bb;}
+.icoCancel{background:#ffecec;border-color:#ffd0d0;}
+.icoDone{background:#ecf3ff;border-color:#cfdefc;}
+.icoAll{background:#f1f3f5;border-color:#e1e6ec;}
+
+/* 🔶 ONE card: filters + table + pagination */
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;}
+.toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px;}
+.filters{display:flex;align-items:center;gap:8px;}
+.select,.titleInput{height:36px;padding:0 10px;border:1px solid #e1e8ee;border-radius:8px;background:#fff;}
+.searchBox{display:flex;align-items:center;gap:6px;}
+.keyword{height:36px;width:320px;padding:0 10px;border:1px solid #e1e8ee;border-radius:8px;background:#fff;}
+.searchBtn{height:36px;padding:0 14px;border:none;border-radius:8px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer;}
+.perPage{display:flex;align-items:center;}
+.perSelect{height:36px;padding:0 12px;border:1px solid #e1e8ee;border-radius:8px;background:#fff;color:#556772;font-size:14px;}
+
+/* Table */
+.tableWrap{overflow:auto;}
+.table{width:100%;border-collapse:collapse;}
+.table thead th{background:#f5f8fb;color:#6b7e8b;font-weight:700;text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);}
+.table tbody td{padding:12px 10px;border-bottom:1px solid var(--line);color:var(--ink);font-size:14px;}
+.tdTitle a{color:var(--ink);text-decoration:none;} .tdTitle a:hover{text-decoration:underline;}
+.colNo{width:90px;} .colType{width:110px;} .colStatus{width:120px;}
+.colTitle{width:50%;} .colAuthor{width:110px;} .colAssignee{width:120px;}
+.colDate{width:120px;} .colViews{width:90px;}
+
+/* status badge */
+.badge{padding:3px 8px;border-radius:999px;font-size:12px;border:1px solid #e1e6ec;background:#f2f6f9;color:var(--ink);}
+.st_완료{background:#e8fff4;border-color:#c3f0d7;color:#147e55;}
+.st_담당자배정{background:#eef7ff;border-color:#cfe6ff;color:#1c6bc6;}
+.st_대기{background:#fff6e5;border-color:#ffe5b8;color:#b86b00;}
+.st_진행{background:#f0f8ff;border-color:#d6edff;color:var(--accent-600);}
+.st_확인요청{background:#fff0f0;border-color:#ffd1d1;color:#b84a4a;}
+.st_보류{background:#f7f7ff;border-color:#e1e1ff;color:#5b5bd6;}
+.st_취소{background:#f8f9fa;color:#8aa1b0;}
+
+/* Pagination */
+.pagination{display:flex;justify-content:center;padding:14px 0 2px;}
+.pageBtn{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:700;cursor:pointer;}
+.pageBtn[aria-current="page"]{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+/* Responsive */
+@media (max-width:1320px){ .container{width:calc(100% - 40px);} .keyword{width:220px;} }
+@media (max-width:980px){ .statsCard{grid-template-columns:repeat(4,1fr);} }
+@media (max-width:640px){
+  .statsCard{grid-template-columns:repeat(2,1fr);}
+  .toolbar{flex-direction:column;align-items:stretch;gap:8px;}
+  .perPage{justify-content:flex-end;}
+  .keyword{width:100%;}
+}
+.topbar{
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
+  background:#fff;                 /* giống ảnh: nền trắng */
+  border-bottom:1px solid var(--line);
+}
+
+.logoWrap{ display:flex; align-items:center; gap:8px; }
+
+.topLinks{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  color:#8599a8;
+  font-size:14px;
+}
+
+.link{
+  color:#8599a8;
+  text-decoration:none;
+}
+.link:hover{ text-decoration:underline; }
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;                 /* không dùng gap để tự chủ động margin-left */
+  padding-top: 16px;
+}
+
+.pageBtn,
+.pageCurrent {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  font-size: 14px;
+  line-height: 32px;
+  cursor: pointer;
+  /* 👇 yêu cầu: lề trái 5px cho từng nút số trang */
+  margin-left: 5px;
+}
+
+.pageBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageCurrent {
+  background: #11a8bf;
+  color: #fff;
+  border-color: #11a8bf;
+}
+
+.ellipsis {
+  margin-left: 5px;  /* giữ đồng bộ khoảng cách */
+  color: #94a3b8;
+  user-select: none;
+}
+
+/* per page select ở góc phải */
+.perPage {
+  margin-left: auto;
+}
+.perSelect {
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid #e1e8ee;
+  border-radius: 8px;
+  background: #fff;
+}

@@ -1,0 +1,126 @@
+/* Center layout + màu xanh giữ nguyên */
+.container {
+  --primary: #11a8bf;
+  --primary-dark: #0e91a6;
+  --border: #d6e9ee;
+  --fg: #222;
+
+  min-height: 100svh;
+  display: grid;
+  grid-auto-rows: max-content;     /* title + form + footer */
+  justify-items: center;           /* center ngang */
+  align-content: center;           /* center dọc */
+  gap: 20px;
+  background: #ffffff;
+  
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(26px, 3.6vw, 38px);
+  font-weight: 800;
+  color: #3a3a3a;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+/* MỘT chiều rộng cho tất cả control */
+.form {
+  --w: 520px;                      /* đổi số này để thay đổi chiều rộng */
+  width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-sizing: border-box;
+}
+
+.field { position: relative; width: 100%; }
+
+.input {
+  width: 504px;
+  height: 52px;
+  border: 2px solid var(--border);
+  background: #eef7ff;
+  color: var(--fg);
+  border-radius: 10px;
+  padding-left: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color .15s ease, background .15s ease;
+}
+.input::placeholder { color: #95a6b0; }
+.input:focus {
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(17,168,191,.10);
+}
+
+/* nút 'x' clear nhỏ */
+.iconBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: #e9f2f5;
+  color: #6f7c84;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+  
+}
+.iconBtn:hover { background: #dfeef3; }
+
+.optionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+  font-size: 14px;
+  color: #6e8f99;
+}
+
+.check { display: inline-flex; gap: 8px; align-items: center; user-select: none; }
+.check input { width: 16px; height: 16px; accent-color: var(--primary); }
+
+/* Button cùng chiều rộng với input vì width:100% trong cùng .form */
+.submit {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background .15s ease, transform .02s ease, box-shadow .15s ease;
+  box-shadow: 0 8px 16px rgba(17,168,191,.18);
+}
+.submit:hover { background: var(--primary-dark); }
+.submit:active { transform: translateY(1px); }
+
+.error { margin-top: 4px; color: #c62828; font-size: 13px; text-align: center; }
+
+.signupRow {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  color: #6e8f99;
+  font-size: 14px;
+}
+.signupLink { color: var(--primary-dark); text-decoration: underline; font-weight: 600; }
+
+/* copy@ ở giữa đáy trang */
+.footer {
+  position: fixed;
+  left: 0; right: 0; bottom: 24px;
+  text-align: center;
+  font-size: 12px;
+  color: #9aa9b1;
+}

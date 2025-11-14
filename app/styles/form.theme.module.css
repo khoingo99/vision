@@ -1,0 +1,232 @@
+/* ====== THEME (màu & kích cỡ) ====== */
+.themeVars {
+  --c-text: #22313a;
+  --c-muted: #8ea1af;
+  --c-border: #e1e8ee;
+  --c-border-soft: #d9e6f0;
+  --c-surface: #ffffff;
+  --c-surface-soft: #f5fbff;
+  --c-primary: #11a8bf;
+  --c-primary-600: #0e8da0;
+  --radius-lg: 12px;
+  --radius-md: 10px;
+  --shadow-soft: 0 8px 24px rgba(17,168,191,.08);
+  --shadow-focus: 0 0 0 4px rgba(17,168,191,.12);
+}
+
+/* ====== KHUNG TRANG & THẺ ====== */
+.pageShell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+.formCard {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+  padding: 18px 20px;
+}
+
+/* ====== LAYOUT HÀNG ====== */
+.formRow {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 4px;
+  border-bottom: 1px solid #f1f5f9;
+}
+.formRow:last-child { border-bottom: 0; }
+
+/* ====== NHÃN & DẤU BẮT BUỘC ====== */
+.label {
+  color: var(--c-text);
+  font-weight: 600;
+  line-height: 38px;
+}
+.reqDot::before {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #ff4d4f;
+  margin-right: 8px;
+  position: relative;
+  top: -1px;
+}
+
+/* ====== Ô NHẬP DÙNG CHUNG ====== */
+.control {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  height: 42px;
+  padding: 0 14px;
+  color: var(--c-text);
+  background: var(--c-surface-soft);
+  border: 1px solid var(--c-border-soft);
+  border-radius: var(--radius-md);
+  transition: border .15s, box-shadow .15s, background .15s;
+}
+
+.control::placeholder { color: var(--c-muted); }
+
+.control:focus {
+  outline: none;
+  border-color: var(--c-primary);
+  box-shadow: var(--shadow-focus);
+  background: #fff;
+}
+
+/* ========== SELECT nhất quán (ẩn caret mặc định, canh giữa) ========== */
+.select{
+  /* đặt biến cục bộ cho phần tử này */
+  --arrow-size: 16px;
+  --arrow-gap: 14px;
+
+  width: 100%;
+  height: 38px;
+  box-sizing: border-box;
+  border: 1px solid #e1e8ee;
+  border-radius: 8px;
+  background: #fff;
+
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+
+  /* chừa chỗ bên phải cho mũi tên */
+  padding: 0 calc(var(--arrow-size) + var(--arrow-gap) * 2) 0 12px;
+
+  /* mũi tên vẽ bằng SVG */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' fill='none' stroke='%238ea1af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-size: var(--arrow-size) var(--arrow-size);
+  background-position: right var(--arrow-gap) center;
+}
+
+.select::-ms-expand{ display:none; }
+
+/* ====== TEXTAREA / EDITOR ====== */
+.dropzone{ border:2px dashed #e1e8ee; border-radius:10px; padding:18px; text-align:center; color:#8ea1af; }
+.dropzone input[type=file]{ display:block; margin:0 auto 8px; }
+
+.fileList{ margin-top:8px; color:#556772; }
+.fileList em{ color:#8ea1af; font-style:normal; }
+
+.editor{ background:#fff; }
+.ql-container.ql-snow{ border:1px solid #e1e8ee; border-radius:8px; }
+.ql-toolbar.ql-snow{ border:1px solid #e1e8ee; border-radius:8px 8px 0 0; }
+
+.actions{ display:flex; gap:8px; justify-content:center; padding-top:16px; }
+.btnPrimary{ background:#11a8bf; color:#fff; font-weight:700; border:none; border-radius:8px; padding:10px 18px; min-width:110px; }
+.btnPrimary:disabled{ opacity:.7; }
+.btnGhost{ background:#fff; color:#2f3f4b; border:1px solid #e1e8ee; border-radius:8px; padding:10px 18px; min-width:110px; }
+/* Dropzone */
+.fileInput { display:none; }  /* ẩn input, dùng button để trigger */
+.dropText{ margin:0 0 8px; color:#8ea1af; }
+.dropzoneActive{ border-color:#11a8bf; background:#f3fbfd; }
+
+/* Danh sách file đã chọn */
+.filesWrap{ margin-top:10px; }
+.filesHeader{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:6px; color:#2f3f4b;
+}
+.fileList{ list-style:none; padding:0; margin:0; border:1px solid #e1e8ee; border-radius:8px; }
+.fileItem{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:8px; padding:8px 10px; border-bottom:1px solid #eef3f6;
+}
+.fileItem:last-child{ border-bottom:none; }
+.fileInfo{ display:flex; align-items:baseline; gap:8px; }
+.fileName{ color:#22313a; }
+.fileMeta{ color:#8ea1af; font-size:12px; }
+.fileRemove{
+  width:28px; height:28px; line-height:26px; text-align:center;
+  border:1px solid #e1e8ee; border-radius:50%; background:#fff; cursor:pointer;
+  font-size:18px; color:#8a9aa6;
+}
+.fileRemove:hover{ border-color:#d0d9e2; color:#2f3f4b; }
+
+/* Buttons nhỏ/link */
+.btnGhostSmall{
+  border:1px solid #e1e8ee; background:#fff; color:#2f3f4b;
+  border-radius:8px; padding:6px 10px; font-size:13px; cursor:pointer;
+}
+.btnLinkDanger{
+  background:none; border:none; color:#d9534f; cursor:pointer;
+}
+.btnLinkDanger:hover{ text-decoration:underline; }
+/* Ẩn tuyệt đối nhưng vẫn accessible */
+.visuallyHidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* Khung cố định bề rộng */
+.editorFixed { width: 804px; }          /* đổi theo ý bạn */
+
+/* Toolbar (thanh công cụ) */
+.editorFixed :global(.ql-toolbar) {
+  border: 1px solid #e1e8ee;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Vùng nhập nội dung */
+.editorFixed :global(.ql-container) {
+  height: 300px;                         /* chiều cao cố định */
+  border: 1px solid #e1e8ee;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Bên trong vùng soạn thảo */
+.editorFixed :global(.ql-editor) {
+  height: 100%;
+  overflow-y: auto;                       /* cuộn nếu vượt quá chiều cao */
+}
+
+/* ====== HELP / ERROR ====== */
+.help {
+  margin-top: 8px;
+  color: var(--c-muted);
+  font-size: 13px;
+}
+.error { color: #e74c3c; }
+.isInvalid {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 4px rgba(231,76,60,.12) !important;
+  background: #fff !important;
+}
+
+/* ====== NÚT ====== */
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding-top: 18px;
+}
+.btn {
+  height: 44px;
+  padding: 0 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--c-border);
+  background: #fff;
+  color: var(--c-text);
+  font-weight: 600;
+  cursor: pointer;
+}
+.btnPrimary {
+  border: 0;
+  background: var(--c-primary);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(17,168,191,.18);
+}
+.btnPrimary:hover { background: var(--c-primary-600); }
