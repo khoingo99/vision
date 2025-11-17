@@ -98,6 +98,8 @@ export default function TicketCreatePage() {
     }
   };
 
+
+
   return (
     <div className={styles.shell}>
       <h1 className={styles.title}>비전정보통신</h1>
